@@ -18,6 +18,7 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS people;
+DROP TABLE IF EXISTS skills;
 # ... 
 SET FOREIGN_KEY_CHECKS=1;
 
@@ -29,10 +30,32 @@ SET FOREIGN_KEY_CHECKS=1;
 # You can assign the skill descriptions.  Please be creative!
 
 
+CREATE TABLE skills (
+    skills_id int not null,
+    skills_name varchar(255) not null,
+    skills_description varchar(255) not null,
+    skills_tag varchar(255) not null,
+    skills_url varchar(255),
+    skills_time_commitment int,
+    PRIMARY KEY (skills_id)
+);
+
+
 # Section 3
 # Populate skills
 # Populates the skills table with eight skills, their tag fields must exactly contain “Skill 1”, “Skill 2”, etc.
 # You can assign skill names.  Please be creative!
+
+
+INSERT INTO skills (skills_id, skills_name, skills_description, skills_tag) values 
+    (1, 'sleeping', 'performing eyes closed for 8 hours at night :D', 'Skill 1'),
+    (2, 'databases', 'fantastic at creating databases, especially on cmsc508 hw7', 'Skill 2'),
+    (3, 'door-holding', 'world renowned at holding the door open for others', 'Skill 3'),
+    (4, 'pythons', 'can name every type of python', 'Skill 4'),
+    (5, 'python', 'extensive knowledge of programming in python', 'Skill 5'),
+    (6, 'java', 'coffee taste-tester', 'Skill 6'),
+    (7, 'eating', 'expert at putting food in my mouth ', 'Skill 7'),
+    (8, 'exercising', 'proficient at burning off all the calories i eat', 'Skill 8');
 
 
 # Section 4
@@ -40,11 +63,13 @@ SET FOREIGN_KEY_CHECKS=1;
 # ID cannot be null, Last name cannot be null, date joined cannot be NULL.
 # All other fields can default to NULL.
 
+
 CREATE TABLE people (
     people_id int,
     people_last_name varchar(256) NOT NULL,
     PRIMARY KEY (people_id)
 );
+
 
 # Section 5
 # Populate people with six people.
